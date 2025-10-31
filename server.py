@@ -43,5 +43,11 @@ def emo_detector():
     })
 
 
+@app.route('/favicon.ico')
+def favicon():
+    # Return no content for favicon requests to avoid 404 log lines
+    return ('', 204)
+
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000)
