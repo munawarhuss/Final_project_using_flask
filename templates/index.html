@@ -1,41 +1,40 @@
-<html>
+﻿<!doctype html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Emotion Detection</title>
+    <!-- Favicon request handled by server -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="./static/mywebscript.js"></script>
     <style>
-        .center-heading {
-            text-align: center;
-        <html>
-        <head>
-            <!-- Favicon request handled by server -->
-            <link rel="icon" href="/favicon.ico" type="image/x-icon">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-            <script src="./static/mywebscript.js"></script>
-            <style>
-                .center-heading {
-                    text-align: center;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="center-heading">NLP - Emotion Detection</h1>
-                    <div style="padding: 25px 25px 25px 25px;">
+        .center-heading { text-align: center; }
+        .pad { padding: 25px; }
+    </style>
+    <script src="{{ url_for('static', filename='mywebscript.js') }}?v={{ static_version }}"></script>
+</head>
+<body>
+    <div class="container py-4">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="center-heading">NLP - Emotion Detection</h1>
+
+                <div class="pad">
                     <h2 class="mb-3">
-                        <label class="form-label">Please enter the text to be analyzed</label>
-                        <input type="textarea" class="form-control" id="textToAnalyze">
+                        <label for="textToAnalyze" class="form-label">Please enter the text to be analyzed</label>
+                        <input placeholder="Type text here" aria-label="Text to analyze" type="text" class="form-control" id="textToAnalyze">
                     </h2>
 
-                    <div style="padding: 25px 25px 25px 25px;">
+                    <div class="pad">
                         <button onclick="RunSentimentAnalysis()" class="btn btn-secondary">Run Sentiment Analysis</button>
                     </div>
-                    <div style="padding: 25px 25px 25px 25px;"></div>
-                    <h2 class="mb-3">
-                        <label class="form-label">Result of Emotion Detection</label>
-                    </h2>
+                    <div class="pad"></div>
+                    <h2 class="mb-3">Result of Emotion Detection</h2>
 
-                    <div id="system_response" style="padding: 25px 25px 25px 25px;"></div>
+                    <div id="system_response" class="pad"></div>
                 </div>
             </div>
-        </body>
+        </div>
+    </div>
+</body>
+</html>
