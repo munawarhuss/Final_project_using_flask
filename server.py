@@ -3,10 +3,15 @@ from EmotionDetection.emotion_detection import emotion_detector
 
 app = Flask("Emotion detection")
 
+# Development: disable caching of static files so changes show immediately.
+# For production, remove or override this with appropriate cache headers.
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
 
 @app.route("/")
 def render_index_page():
-    return render_template('index.html')
+    # Pass a small static_version value to templates for cache-busting in development.
+    return render_template('index.html', static_version='1.1')
 
 
 @app.route("/emotionDetector")
@@ -42,11 +47,6 @@ def emo_detector():
         'dominant_emotion': dominant_emotion
     })
 
-
-@app.route('/favicon.ico')
-def favicon():
-    # Return no content for favicon requests to avoid 404 log lines
-    return ('', 204)
 
 
 if __name__ == '__main__':
